@@ -1,0 +1,68 @@
+﻿<Window x:Class="ChameraVote.Views.NewVotingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChameraVote.Views"
+        xmlns:p = "clr-namespace:ChameraVote.Properties"
+        mc:Ignorable="d"
+        Title="NewVotingWindow" Height="450" Width="800"
+        Style="{DynamicResource ChameraWindowStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <local:CustomTitleBar x:Name="TitleBar" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top" Window="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></local:CustomTitleBar>
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" >
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="{x:Static p:Resources.NewVotingWindow_Title}" Width="150"></TextBlock>
+                    </Border>
+                    <TextBox Text="{Binding Path=VotingTitle}" MinWidth="400" HorizontalAlignment="Stretch"></TextBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="{x:Static p:Resources.NewVotingWindow_Password}"  Width="150"></TextBlock>
+                    </Border>
+                    <TextBox Text="{Binding Path=Password}" MinWidth="400" HorizontalAlignment="Stretch"></TextBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="{x:Static p:Resources.NewVotingWindow_MaximumOptions}"  Width="150"></TextBlock>
+                    </Border>
+                    <TextBox Text="{Binding Path=MaxOptions}" MinWidth="400" HorizontalAlignment="Stretch"></TextBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="{x:Static p:Resources.NewVotingWindow_Anonymous}"  Width="300"></TextBlock>
+                    </Border>
+                    <CheckBox IsChecked="{Binding Path=Anonymous}"></CheckBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0" Visibility="Collapsed">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="Mutually exclusive"  Width="300"></TextBlock>
+                    </Border>
+                    <CheckBox IsChecked="{Binding Path=MutuallyExclusive}"></CheckBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Stretch" Margin="0 50 0 0">
+                    <Border DockPanel.Dock="Left" BorderBrush="{x:Null}">
+                        <TextBlock Text="{x:Static p:Resources.NewVotingWindow_AllowUnregisteredUsers}"  Width="300"></TextBlock>
+                    </Border>
+                    <CheckBox IsChecked="{Binding Path=AllowUnregisteredUsers}"></CheckBox>
+                </DockPanel>
+                <ListView ItemsSource="{Binding Path=VotingOptionsRaw,Mode=TwoWay}" ItemContainerStyle="{DynamicResource ChameraListViewNotSelectableItem}" Margin="0 30 0 0"></ListView>
+                <Button x:Name="addItem" Content="{x:Static p:Resources.NewVotingWindow_AddOption}" Click="addItem_Click" Margin="0 30 0 0"></Button>
+                <Button x:Name="uploadButton" Content="{x:Static p:Resources.NewVotingWindow_Upload}" Click="uploadButton_Click" Margin="0 30 0 0"></Button>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" Text="{Binding Path=Status}"></TextBlock>
+    </Grid>
+</Window>
