@@ -1,0 +1,21 @@
+{
+  "ApplicationToken": "0123456789",
+  "RegistrationToken": "pfxQ3",
+  "ServerAddress": "localhost",
+  "ServerWebPort": 16402,
+  "ServerPort": 16403,
+  "AllowedRegistrationUsernames": [
+    "jarek",
+    "jarek1",
+    "roman",
+    "roman1"
+  ],
+  "RSA": {
+    "P": 5,
+    "Q": 7,
+    "n": 35,
+    "fi": 24,
+    "e": 7,
+    "d": 7
+  }
+}
