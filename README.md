@@ -59,8 +59,10 @@ Commands are sent as strings, separator is ':'.
 - command:getResults:{username:String}:{token:String}:{password:String}:{votingId:Integer} returns {ret:[String]}
 - command:castVote:{username:String}:{token:String}:{password:String}:{votingId:Integer}:{Signature:String} returns {}
 - command:login:{username:String}:{password:String} returns {}
-- command:getUserVotings:{username:String}:{token:String}:{password:String} returns {response:String}:[{VotingId:Integer}:{Title:String}] //DO SPRAWDZENIA
+- command:getUserVotings:{username:String}:{token:String}:{password:String} returns {response:String}:[{VotingId:Integer}:{Title:String}]
 - commamd:register:{username:String}:{token:String}:{password:String} returns {token:String}
 - commamd:addNewVoting:{username:String}:{token:String} returns {VotingId:Integer}
 - commamd:removeVoting:{username:String}:{token:String}:{id:Integer} returns {}
 - commamd:verify:{cardId:Integer}:{signature:String}:{VotingId:Integer} returns {}
+Each response is also wrapped in status + value:
+{OK}:{ResponseValue:String} or {NOK}:{ErrorCode:Integer}.
