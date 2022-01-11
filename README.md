@@ -44,8 +44,11 @@ Below you may find some screenshots from desktop client.
 ![alt text](https://github.com/skowront/ChameraVote/blob/master/github/images/chameraVoteClientResults.jpg)
 
 API Documnentation:
+
 Server is available at port 16403.
+
 Commands are sent as strings, separator is ':'.
+
 - command:getVotingById:{username:String}:{Token:String}:{Password:String}:{VotingId:Integer} returns {VotingId:Integer}:{Owner:string}:{Title:String}:{Anonymous:bool}:{MutuallyExclusive:bool}:{AllowUnregisteredUsers:bool}:{maxOptions:Integer}:{NumberOfVoteOptions:Integer}:{VoteOptions:[string]}:{NumberOfVoteResults}:{VoteResults:[String]}:{NumberOfVoteClients:Integer}:{VoteClients:[String]}
 - command:getBallot:{votingId:Integer} returns {ballotIds:Integer}
 - command:getSignedBallot:{username:String}:{token:String}:{password:String}:{votingId:Integer}:{mPrime:Integer} returns {sPrime:Integer}
@@ -64,5 +67,6 @@ Commands are sent as strings, separator is ':'.
 - commamd:addNewVoting:{username:String}:{token:String} returns {VotingId:Integer}
 - commamd:removeVoting:{username:String}:{token:String}:{id:Integer} returns {}
 - commamd:verify:{cardId:Integer}:{signature:String}:{VotingId:Integer} returns {}
+
 Each response is also wrapped in status + value:
 {OK}:{ResponseValue:String} or {NOK}:{ErrorCode:Integer}.
