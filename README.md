@@ -44,5 +44,6 @@ Below you may find some screenshots from desktop client.
 ![alt text](https://github.com/skowront/ChameraVote/blob/master/github/images/chameraVoteClientResults.jpg)
 
 API Documnentation:
+Server is available at port 16403.
 Commands are sent as strings, separator is ':'.
 - command:getVotingId:{Number:Integer} returns {VotingId:Integer}
